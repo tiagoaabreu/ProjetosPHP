@@ -1,31 +1,56 @@
 <?php
-echo "Olá bem vindo ao screen-match\n";
+function exibeMsgLancamento(int $ano)
+{
+    if ($ano < 2020) {
+        echo "O filme é antigo.\n";
+    } else {
+        echo "O filme é recente.\n";
+    }
+}
+function incluidoNoPlano(bool $planoPrime, int $anoLancamento)
+{
+    return $planoPrime || $anoLancamento < 2020;
+}
 
-$nomeFilme = "Meu caralho";
+echo "Bem-vindo(a) ao screen match!\n";
+
+$nomeFilme = "Top Gun - Maverick";
+
 $anoLancamento = 2022;
 
-$quantidadeNotas = $argc - 1;
-$somaDeNotas = 0;
+$quantidadeDeNotas = $argc - 1;
+$notas = [];
 
-for ($contador = 1; $contador < $argc; $contador += 1) {
-    $somaDeNotas += $argv[$contador];
-}
-$contador = 1;
-
-while ($argv[$contador] != 0) {
-    $somaDeNotas += $argv[$contador++];
+for ($contador = 1; $contador < $argc; $contador++) {
+    $notas[] = (float) $argv[$contador];
 }
 
-$notaFilme = $somaDeNotas / $quantidadeNotas;
-if ($notaFilme > 10) {
-    echo "Nota invalida, nota deve ser entre 0 e 10\n";
-}
-;
+$notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
-$incluidoPlano = $planoPrime || $anoLancamento < 2020;
+$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
 echo "Nome do filme: " . $nomeFilme . "\n";
-echo "Nota do filme: " . $notaFilme . "\n";
-echo "Ano do lançamento: " . $anoLancamento . "\n";
+echo "Nota do filme: $notaFilme\n";
+echo "Ano de lançamento: $anoLancamento\n";
 
+exibeMsgLancamento(1990);
+
+$genero = match ($nomeFilme) {
+    "Top Gun - Maverick" => "ação",
+    "Thor: Ragnarok" => "super-herói",
+    "Se beber não case" => "comédia",
+    default => "gênero desconhecido",
+};
+
+echo "O gênero do filme é: $genero\n";
+
+$filme = [
+    "nome" => "Thor: Ragnarok",
+    "ano" => 2021,
+    "nota" => 7.8,
+    "genero" => "super-herói",
+];
+
+
+echo $filme["ano"];
