@@ -17,7 +17,10 @@ while ($argv[$contador] != 0) {
 }
 
 $notaFilme = $somaDeNotas / $quantidadeNotas;
-
+if ($notaFilme > 10) {
+    echo "Nota invalida, nota deve ser entre 0 e 10\n";
+}
+;
 $planoPrime = true;
 
 $incluidoPlano = $planoPrime || $anoLancamento < 2020;
