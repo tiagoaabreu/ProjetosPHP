@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . "/src/Model/Filme.php";
 require __DIR__ . "/src/funcoes.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
@@ -48,3 +49,4 @@ file_put_contents(
     __DIR__ . "/Filmes/filme.json",
     $filmeComoStringJson,
 );
+
