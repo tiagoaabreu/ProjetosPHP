@@ -1,4 +1,6 @@
 <?php 
+require __DIR__ ."/Model/Titulo.php";
+require __DIR__ ."/Model/Serie.php";
 require __DIR__ . "/Model/Genero.php";
 require __DIR__ . "/Model/Filme.php";
 require __DIR__ . "/funcoes.php";
@@ -15,5 +17,12 @@ $filme = new Filme(
 
 
 
-var_dump($filme);
+//var_dump($filme);
 
+$serie = new Serie('Dexter',2005,Genero::Drama,10);
+
+echo $serie->anoLancamento. "\n";
+
+$serie->avalia(8);
+
+echo $serie->media();
