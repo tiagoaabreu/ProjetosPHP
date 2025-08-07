@@ -15,6 +15,10 @@ class Titulo
     public function media(): float{
         $somaNotas = array_sum($this->notas);
         $quantidadeNotas = count($this->notas);
+        
         return $somaNotas / $quantidadeNotas;
+    }
+    public function duracaoEmMinutos(): int{
+        return 0;
     }
 }
