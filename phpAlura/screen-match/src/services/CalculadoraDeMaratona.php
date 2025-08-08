@@ -1,4 +1,6 @@
 <?php
+namespace ScreenMatch\services;
+use ScreenMatch\Model\Titulo;
 class CalculadoraDeMaratona {
     private int $duracaoMaratona = 0;
     public function inclui(Titulo $titulo){

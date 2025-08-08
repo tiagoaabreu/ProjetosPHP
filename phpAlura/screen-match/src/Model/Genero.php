@@ -1,5 +1,5 @@
 <?php
-
+namespace ScreenMatch\Model;
 enum Genero{
     case Acao;
     case Comedia;
